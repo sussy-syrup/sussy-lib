@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.sussysyrup.sussylib.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "LifeCycleResourceManagerImplMixin"
+  ],
+  "client": [
+    "client.FileResourcePackProviderMixin",
+    "client.PackScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

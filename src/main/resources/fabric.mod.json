@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "sussylib",
+  "version": "${version}",
+
+  "name": "Sussy Lib",
+  "description": "Library mod for sussy_syrup mods",
+  "authors": [
+    "sussy_syrup"
+  ],
+  "contact": {
+    "sources": "https://github.com/sussy-syrup"
+  },
+
+  "license": "MIT",
+  "icon": "assets/sussylib/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.sussysyrup.sussylib.Main"
+    ],
+    "client": [
+      "com.sussysyrup.sussylib.Client"
+    ]
+  },
+  "mixins": [
+    "sussylib.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric-api": "*",
+    "minecraft": "~1.19.3",
+    "java": ">=17"
+  },
+  "suggests": {
+  }
+}
