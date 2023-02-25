@@ -10,6 +10,7 @@ import java.awt.image.WritableRaster;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.List;
 
 public class RecolourUtil {
 
@@ -28,7 +29,9 @@ public class RecolourUtil {
                                 color = new Color(bi.getRGB(w, h));
                                 if(colourScheme.template().contains(color))
                                 {
-                                        bi.setRGB(w, h, colourScheme.colours().get(colourScheme.template().indexOf(color)).getRGB());
+                                        List<Color> colourGrey = colourScheme.colours().stream().toList();
+                                        List<Color> colourTemp = colourScheme.template().stream().toList();
+                                        bi.setRGB(w, h, colourGrey.get(colourTemp.indexOf(color)).getRGB());
                                 }
                         }
                 }
