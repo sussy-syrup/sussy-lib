@@ -22,13 +22,19 @@ public class RecolourUtil {
 
                 BufferedImage bi = new BufferedImage(cm, raster, bool, null);
                 Color color;
-                for(int h = 0; h < bi.getHeight(); h++)
-                {
-                        for(int w = 0; w < bi.getWidth(); w++)
-                        {
-                                color = new Color(bi.getRGB(w, h));
-                                if(colourScheme.template().contains(color))
-                                {
+                for(int h = 0; h < bi.getHeight(); h++) {
+                        for (int w = 0; w < bi.getWidth(); w++) {
+                                int rgb = bi.getRGB(w, h);
+
+                                int alpha = (rgb >> 24) & 0xff;
+
+                                if (alpha < 254) {
+                                        continue;
+                                }
+
+                                color = new Color(rgb);
+
+                                if (colourScheme.template().contains(color)) {
                                         List<Color> colourGrey = colourScheme.colours().stream().toList();
                                         List<Color> colourTemp = colourScheme.template().stream().toList();
                                         bi.setRGB(w, h, colourGrey.get(colourTemp.indexOf(color)).getRGB());
