@@ -94,10 +94,10 @@ public class ResourcePackHelper {
     public static void registerFluidModel(Identifier id, Identifier texturePath) {
         try {
             String model = "{\n" +
-                    "    \"textures\": {\n" +
-                    "        \"particle\": " + texturePath.getNamespace() + ":" + texturePath.getPath() + "_still" + "\n" +
-                    "    }\n" +
-                    "}\n";
+                    "  \"textures\": {\n" +
+                    "    \"particle\": \"" + texturePath +"\"\n" +
+                    "  }\n" +
+                    "}";
 
             SussyResourcePack.registerClientResource(id, new ByteArrayInputStream(model.getBytes(Charset.defaultCharset())));
         } catch (Exception e) {
